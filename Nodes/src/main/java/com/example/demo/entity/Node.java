@@ -1,15 +1,11 @@
 package com.example.demo.entity;
 
 import java.util.Objects;
-import java.util.concurrent.atomic.AtomicInteger;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 
 @Entity
@@ -17,47 +13,40 @@ import jakarta.validation.constraints.Pattern;
 public class Node {
 
 	@Id
-	@Column(name="node_id",nullable=false)
-	@NotNull(message="Node Id cannot be Null")
-//    @Pattern(regexp = "^[a-zA-Z0-9 ]*$", message = "Special characters are not allowed")
+	@Column(name="node_id")
+	@NotBlank(message="Node Id cannot be Null")
+    @Pattern(regexp = "^[^!@#$%^&*()]*$", message = "Special characters are not allowed in node id")
 	private String node_id;
 	
-//	@Transient
-//    private static final AtomicInteger counter = new AtomicInteger(1);
-//
-//    @PrePersist
-//    private void generateNodeId() {
-//        this.node_id = String.format("T300_%03d", counter.getAndIncrement());
-//    }
-    
-	@Column(name="node_name",nullable=false)
-	@NotNull(message="Name cannot be Null")
-    @Pattern(regexp = "^[a-zA-Z0-9 ]*$", message = "Special characters are not allowed")
+
+	@Column(name="node_name")
+	@NotBlank(message="Name cannot be Null")
+    @Pattern(regexp = "^[^!@#$%^&*()]*$", message = "Special characters are not allowed in node name")
 	private String node_name;
 	
-	@Column(name="description",nullable=false)
-	@NotNull(message="description cannot be Null")
-    @Pattern(regexp = "^[a-zA-Z0-9 ]*$", message = "Special characters are not allowed")
+	@Column(name="description")
+	@NotBlank(message="description cannot be Null")
+    @Pattern(regexp = "^[^!@#$%^&*()]*$", message = "Special characters are not allowed in description")
 	private String description;
 	
-	@Column(name="memo",nullable=false)
-	@NotNull(message="memo cannot be Null")
-    @Pattern(regexp = "^[a-zA-Z0-9 ]*$", message = "Special characters are not allowed")
+	@Column(name="memo")
+	@NotBlank(message="memo cannot be Null")
+    @Pattern(regexp = "^[^!@#$%^&*()]*$", message = "Special characters are not allowed in memo")
 	private String memo;
 	
-	@Column(name="node_type",nullable=false)
-	@NotNull(message="type cannot be Null")
-    @Pattern(regexp = "^[a-zA-Z0-9 ]*$", message = "Special characters are not allowed")
+	@Column(name="node_type")
+	@NotBlank(message="type cannot be Null")
+    @Pattern(regexp = "^[^!@#$%^&*()]*$", message = "Special characters are not allowed in node type")
 	private String node_type;
 	
-	@Column(name="parent_node_group_name",nullable=false)
-	@NotNull(message="parent group name cannot be Null")
-    @Pattern(regexp = "^[a-zA-Z0-9 ]*$", message = "Special characters are not allowed")
+	@Column(name="parent_node_group_name")
+	@NotBlank(message="parent node group name cannot be Null")
+    @Pattern(regexp = "^[^!@#$%^&*()]*$", message = "Special characters are not allowed in parent node group name")
 	private String parent_node_group_name;
 	
-	@Column(name="parent_node_group_id",nullable=false)
-	@NotNull(message="parent group id cannot be Null")
-    @Pattern(regexp = "^[a-zA-Z0-9 ]*$", message = "Special characters are not allowed")
+	@Column(name="parent_node_group_id")
+	@NotBlank(message="parent node group id cannot be Null")
+    @Pattern(regexp = "^[^!@#$%^&*()]*$", message = "Special characters are not allowed in parent node group id ")
 	private String parent_node_group_id;
 
 	public String getNode_id() {

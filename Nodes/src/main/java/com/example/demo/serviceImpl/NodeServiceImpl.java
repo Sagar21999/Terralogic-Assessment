@@ -37,7 +37,8 @@ public class NodeServiceImpl implements NodeService {
 			return node.get();
 		}
 		else {
-			throw new NodeNotFoundException("Node","Id",node_id);
+			throw new NodeNotFoundException("Cannot find node with id : " + node_id);
+
 		}
 	}
 
